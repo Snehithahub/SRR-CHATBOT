@@ -1,0 +1,108 @@
+<html>
+    <style>
+        #srr{
+            padding: 6px;
+            margin-left:6%;
+            margin-right: 6%;
+            background-color: #f2f2f2;
+        }
+        h1{
+            color: #0000ff;
+            text-align: center;
+            padding: 2%;
+            margin-top: 2%;
+        }
+        .chat-header{
+            text-align: center;
+            background-color:#0066ff ;
+            color: white;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            
+        }
+        #chat-input{
+            text-align: center;
+            margin-top: 4px;
+            word-wrap: break-word; 
+            overflow-wrap: break-word;
+        }
+        #button{
+            cursor: pointer;
+        }
+        .chat-messages{
+            margin-left: 10%;
+            margin-right: 10%;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-top: 5px;
+        }   
+        #chat-container{
+            border: 2px solid black; 
+            border-radius: 10px; 
+            max-height: 400px;
+            overflow-y: auto;
+            
+        }
+        .message{
+            padding: 2px;
+            margin-left: 50%;
+            word-break: break-all;
+            border-radius: 10px;
+            max-height: 400px; 
+            overflow-y: auto;
+            box-shadow: 0 2px 5px rgba(0, 0, 0);
+           
+        }
+        .bot{
+            background-color: #f2f2f2;
+            padding: 5px;
+            margin: 5px ;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+            text-align: left;
+            margin-right:  30%;
+            margin-top: 2%;
+        }
+    </style>
+<body>
+    <div id="srr">
+    <h1>SRR Cloud ExpertsGuru India PVT.LTD </h1>
+    <div id="chat-container">
+        <div class="chat-header">
+            Chatbot
+        </div>
+        <div class="chat-messages">
+        <div id="chat-messages"> 
+        <!--previous messages-->
+        
+        </div>
+        </div>
+        <div id="chat-input">
+            <textarea name="input-text" id="input" rows="2" cols="110" maxlength="90"></textarea>
+            <button id="button" onclick="sendmessage()"> Submit </button>
+        </div>
+        <script>
+        function sendmessage() {
+            
+            const message=document.createElement('div');
+            message.textContent=document.getElementById("input").value;
+            message.style.textAlign = 'right';
+            message.style.backgroundColor=' #b3d9ff';
+            message.id='message'
+            message.classList.add('message');
+            document.getElementById("chat-messages").appendChild(message);
+            document.getElementById("input").value=' ';
+            setTimeout(() => {
+                const botMessage = document.createElement('div');
+                botMessage.textContent = "Hello, I am a bot!";
+                botMessage.classList.add('bot');
+                document.getElementById('chat-messages').appendChild(botMessage);
+               
+            }, 1000); 
+        }
+        </script>
+        
+    </div>
+    </div>
+</body>
+</html>
